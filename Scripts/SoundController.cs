@@ -70,6 +70,7 @@ public class SoundController : MonoBehaviour
         if (muted) return;
         
         SetEffect(blockMove);
+        sfxSource.pitch = Random.Range(1f,1.5f); //randomize the pitch so it feels less repetitive
         sfxSource.Play();
     }
 
