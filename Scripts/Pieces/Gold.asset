@@ -16,5 +16,5 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: abc1b411563d15b41ad5baec2de5de50, type: 3}
   matchable: 0
   killAtBottom: 1
-  chanceOfUsing: 0.1
+  chanceOfUsing: 0.2
   aliveOnStart: 0

@@ -16,6 +16,8 @@ public class GameController : MonoBehaviour
     private int[] fills;
     [SerializeField] private float goldGameSeconds = 180f;
     private int gold = 0;
+    private int curGoldOnBoard = 0;
+    [SerializeField] private int maxGoldOnBoard = 4;
     [SerializeField] private int goldObjective = 5;
     [SerializeField] private float matchingGameSeconds = 180f;
     [SerializeField] private float survivalGameSeconds = 60f;
@@ -101,10 +103,6 @@ public class GameController : MonoBehaviour
             else{ //if we made a match
                 // Debug.Log("connected: " + connected.Count);
                 scoreboard.AddPoints(connected.Count * 10);
-
-                // if (gameMode == "survival"){
-                //     SetGameTime(gameTimer + (connected.Count * survivalSecondsPerGold));
-                // }
                 
                 foreach(Point pnt in connected){ //remove the node pieces connected
                     KillPiece(pnt);
@@ -125,6 +123,7 @@ public class GameController : MonoBehaviour
                 if (pieces[GetValueAtPoint(bPnt)-1].name == "Gold"){
                     gold++;
                     scoreboard.AddGold(1);
+                    curGoldOnBoard--;
                     if (gold < goldObjective){
                         goldAlert.PlayAlert("Gold!");
                     }
@@ -181,6 +180,10 @@ public class GameController : MonoBehaviour
                         int newVal = FillPiece(false);
                         NodePiece piece;
                         Point fallPoint = new Point(x, -1 - fills[x]);
+
+                        if (pieces[newVal - 1].name == "Gold"){
+                            curGoldOnBoard++;
+                        }
 
                         if (deadPieces.Count > 0){
                             NodePiece revived = deadPieces[0];
@@ -249,6 +252,8 @@ public class GameController : MonoBehaviour
         if (!soundboard.EffectIsPlaying()){
             soundboard.PlayButtonClick();
         }
+
+        curGoldOnBoard = 0;
         if (gameMode == "gold"){
             StartGoldGame();
         }
@@ -276,7 +281,6 @@ public class GameController : MonoBehaviour
         killedPieces = new List<KilledPiece>();
 
         piecesSprites = new Sprite[pieces.Count];
-        // Debug.Log("piecesSprites length: " + piecesSprites.Length);
         for (int i = 0; i < pieces.Count; i++){
             piecesSprites[i] = pieces[i].sprite;
         }
@@ -333,7 +337,6 @@ public class GameController : MonoBehaviour
         List<int> unalive = new List<int>(); //don't refill points with pieces who don't spawn at start
         for (int i = 0; i < pieces.Count; i++){
             if (!pieces[i].aliveOnStart){
-                // Debug.Log("adding unalive: " + i + " (" + pieces[i].name + ")");
                 unalive.Add(i+1);
             }
         }
@@ -346,7 +349,6 @@ public class GameController : MonoBehaviour
                 if (val <= 0) continue;
 
                 remove = new List<int>(unalive);
-                // Debug.Log(remove.Count + " " + remove[0]);
                 while (IsConnected(p, true).Count > 0){
                     val = GetValueAtPoint(p);
                     if (!remove.Contains(val)){
@@ -557,7 +559,7 @@ public class GameController : MonoBehaviour
     private int FillPiece(bool start){ //where start is the initial board population
         int val = 1;
         val = (dice.Next(0,(piecesSprites.Length * 20)) / ((piecesSprites.Length * 20) / piecesSprites.Length)) + 1;
-        while (Random.Range(0f,1f) > pieces[val-1].chanceOfUsing || (!pieces[val-1].aliveOnStart && start)){
+        while (Random.Range(0f,1f) > pieces[val-1].chanceOfUsing || (!pieces[val-1].aliveOnStart && start) || (pieces[val-1].name == "Gold" && curGoldOnBoard >= maxGoldOnBoard)){
             val = (dice.Next(0,(piecesSprites.Length * 20)) / ((piecesSprites.Length * 20) / piecesSprites.Length)) + 1;
         }
         return val;
