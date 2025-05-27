@@ -60,7 +60,7 @@ public class GameController : MonoBehaviour
     private void Update(){
         if (!gameActive) return;
 
-        if (gold >= goldObjective){
+        if (gold >= goldObjective && gameMode != "survival"){
             EndGame(true);
         }
 
@@ -244,7 +244,7 @@ public class GameController : MonoBehaviour
         SetGameTime(survivalGameSeconds);
         scoreboard.SetScoreTextActive(false);
         scoreboard.SetGoldTextActive(true);
-        scoreboard.SetGoldSuffix(" / " + goldObjective);
+        scoreboard.SetGoldSuffix("");
         StartGame();
     }
 
