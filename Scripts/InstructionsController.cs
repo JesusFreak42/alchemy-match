@@ -9,9 +9,9 @@ public class InstructionsController : MonoBehaviour
     [SerializeField] private GameObject helpObj;
     [SerializeField] private TextMeshProUGUI helpText;
     
-    [SerializeField] private string goldModeText = "";
-    [SerializeField] private string matchingModeText = "";
-    [SerializeField] private string survivalModeText = "";
+    [TextArea(2,10)][SerializeField] private string goldModeText = "";
+    [TextArea(2,10)][SerializeField] private string matchingModeText = "";
+    [TextArea(2,10)][SerializeField] private string survivalModeText = "";
     
     [SerializeField] private SoundController soundboard;
 

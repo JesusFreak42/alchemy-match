@@ -32938,8 +32938,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua.
+  m_text: Lorem ipsum dolor sit amet, <color=#FFE800>consectetur</color> adipiscing
+    elit, sed do eiusmod tempor <color=#1D6AF0>incididunt</color> ut labore et dolore
+    magna aliqua.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1e3194a39e504b045abba7b130687fc0, type: 2}
   m_sharedMaterial: {fileID: -5064705831668793888, guid: 1e3194a39e504b045abba7b130687fc0, type: 2}
@@ -39723,13 +39724,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   helpObj: {fileID: 528951236}
   helpText: {fileID: 987257245}
-  goldModeText: Match 3 of the same element and try to find gold. Move gold to the
-    bottom to refine it. Refine enough gold before time runs out!
-  matchingModeText: Match 3 of the same element to score points. Get gold blocks
-    to the bottom for extra points! Score as many points as you can before time runs
-    out!
-  survivalModeText: Match 3 of the same element and try to find gold. Move gold to
-    the bottom to refine it. Refining gold adds time on the clock!
+  goldModeText: Match 3 of the same element and try to find <color=#FFE800>gold</color>.
+    Move gold to the <color=#FFE800>bottom</color> to refine it. Refine enough gold
+    before <color=#1D6AF0>time</color> runs out!
+  matchingModeText: Match 3 of the same element to score <color=#1D6AF0>points</color>.
+    Get <color=#FFE800>gold</color> blocks to the bottom for extra points! Score
+    as many points as you can before <color=#1D6AF0>time</color> runs out!
+  survivalModeText: Match 3 of the same element and try to find <color=#FFE800>gold</color>.
+    Move gold to the <color=#FFE800>bottom</color> to refine it. Refining gold <color=#1D6AF0>adds
+    time</color> on the clock!
   soundboard: {fileID: 1487205752}
 --- !u!1 &1673684323
 GameObject:
@@ -40202,7 +40205,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 75, y: 10}
+  m_AnchoredPosition: {x: 75, y: -10}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &2056064132
