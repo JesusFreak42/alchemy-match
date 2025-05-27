@@ -39728,8 +39728,9 @@ MonoBehaviour:
     Move gold to the <color=#FFE800>bottom</color> to refine it. Refine enough gold
     before <color=#1D6AF0>time</color> runs out!
   matchingModeText: Match 3 of the same element to score <color=#1D6AF0>points</color>.
-    Get <color=#FFE800>gold</color> blocks to the bottom for extra points! Score
-    as many points as you can before <color=#1D6AF0>time</color> runs out!
+    Get <color=#FFE800>gold</color> blocks to the bottom for <color=#FFE800>extra
+    points</color>! Score as many points as you can before <color=#1D6AF0>time</color>
+    runs out!
   survivalModeText: Match 3 of the same element and try to find <color=#FFE800>gold</color>.
     Move gold to the <color=#FFE800>bottom</color> to refine it. Refining gold <color=#1D6AF0>adds
     time</color> on the clock!
