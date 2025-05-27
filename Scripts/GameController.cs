@@ -60,7 +60,7 @@ public class GameController : MonoBehaviour
     private void Update(){
         if (!gameActive) return;
 
-        if (gold >= goldObjective && gameMode != "survival"){
+        if (gold >= goldObjective && gameMode == "gold"){
             EndGame(true);
         }
 
