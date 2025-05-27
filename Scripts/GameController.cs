@@ -253,7 +253,6 @@ public class GameController : MonoBehaviour
             soundboard.PlayButtonClick();
         }
 
-        curGoldOnBoard = 0;
         if (gameMode == "gold"){
             StartGoldGame();
         }
@@ -301,6 +300,7 @@ public class GameController : MonoBehaviour
         VerifyBoard();
         CreateBoard();
         gold = 0;
+        curGoldOnBoard = 0;
         scoreboard.SetPoints(0);
         scoreboard.SetGold(0);
         boardShield.gameObject.SetActive(false);
